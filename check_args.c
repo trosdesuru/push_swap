@@ -68,25 +68,6 @@ int	check_isdigit(char **argv)                                      /* FIXED */
 	return (1);
 }
 
-check_ischar(char **argv)                                           /* FIXED */
-{
-    int i;
-    int j;
-
-    i = 1;
-    j = 0;
-    while (argv[i][j])
-    {
-        if (argv[i][j] <= '0' && argv[i][j] >= '9')
-        {
-            perror_printchar();
-            return (0);
-        }
-        j++;
-    }
-    i++;
-}
-
 int check_ischar(char **argv)
 {
     int i;;
@@ -107,5 +88,5 @@ int check_ischar(char **argv)
         }
         i++;
     }
-    return 1;
+    return (1);
 }
