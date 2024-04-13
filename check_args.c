@@ -1,41 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_args.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/13 13:39:47 by edhernan          #+#    #+#             */
+/*   Updated: 2024/04/13 18:01:27 by edhernan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"                                              /* FIXED */
 
 int check_args(int argc, char **argv)
 {
-    if (argc <= 1)
-    {
-        perror_printargc();
-        return(0);
-    }
-    else if (argc >= 2)
-        check_argv(argv);
-    return (1);
+    if (argc >= 2)
+		check_argv(argv);
+    else
+		perror_printargc();
+	return (1);
 }
 
-int check_argv(char **argv)
+int check_argv(char **argv)                                         /* FIXED */
 {
-    int i;
-    int j;
+    int i = 1;
+    int j = 0;
 
-    while (argv[i][j])
+    while (argv[i] != NULL)
     {
-        i = 1;
-        j = 0;
-        //write(1, &argv[i][j], 1);
-        if (check_isdigit(argv))
-            return (1);
-        else if (check_ischar(argv))
+        while (argv[i][j])
         {
-            perror_printer();
-            return (0);
+            if (check_isdigit(argv[i][j]) || argv[i][j] == ' ' ||
+                    argv[i][j] == '\t')
+                j++;
+            if (check_ischar(argv[i][j]))
+            {
+                perror_printer();
+                return (0);
+            }
+            j = 0;
         }
-        j++;
+        i++;
     }
-    i++;
     return (1);
 }
 
-check_isdigit(char **argv) /*   FIX RETURN VALUES */
-
+int	check_isdigit(char **argv)                                      /* FIXED */
 {
     int i;
     int j;
@@ -46,19 +56,19 @@ check_isdigit(char **argv) /*   FIX RETURN VALUES */
     {
         if (argv[i][j] >= '0' && argv[i][j] <= '9')
             //write(1, &argv[i][j], 1);
-            return (0);
-        else if (check_dup(argv))
+            j++;
+        else if (argv[i][j] >= 'a' && argv[i][j] <= 'z' ||
+                    argv[i][j] >= 'A' && argv[i][j] <= 'Z')
         {
-            perror_printdup();
-            return (1);
+            perror_printerdup();
+            return (0);
         }
-        j++;
     }
     i++;
-    return (0);
+	return (1);
 }
 
-check_ischar(char **argv) /*FIX CHAR DECLARATION AND SYMBOLS*/
+check_ischar(char **argv)                                           /* FIXED */
 {
     int i;
     int j;
@@ -76,26 +86,26 @@ check_ischar(char **argv) /*FIX CHAR DECLARATION AND SYMBOLS*/
     }
     i++;
 }
-/* FIX CHECK DUPLICATE FUNCTION
 
-int check_dup(int argc, char **argv)
+int check_ischar(char **argv)
 {
-    int     i;
-    int     j;
-    size_t  n;
-    
+    int i;;
+    int j;
+
     i = 1;
-    j = 0;
-    while (argv[i][j])
+    while (argv[i] != NULL)
     {
-        n = 0;
-        argv[i][n] = argv[i][j];
-        if (nbr == argv[i][j])
+        j = 0;
+        while (argv[i][j])
         {
-            perror_printer();
-            return (0);
+            if (argv[i][j] >= 33 && argv[i][j]c <= 255)
+            {
+                perror_printchar();
+                return (0);
+            }
+            j++;
         }
-        j++;
+        i++;
     }
-    n++;
-}*/
+    return 1;
+}
