@@ -34,9 +34,8 @@ int check_argv(char **argv)
     return (1);
 }
 
-/*FIX CHECK IS DIGIT FUNCTION
+check_isdigit(char **argv) /*   FIX RETURN VALUES */
 
-check_isdigit(char **argv)
 {
     int i;
     int j;
@@ -45,34 +44,21 @@ check_isdigit(char **argv)
     j = 0;
     while (argv[i][j])
     {
-
-        if (argv[i][j] == '-' || argv[i][j] == '+')
-        {
-            //write(1, &argv[i[j], 1]);
-        }
-
-        if (argv[i][j] == ' ' || argv[i][j] == '\t')
-        {
-
-        }
-
         if (argv[i][j] >= '0' && argv[i][j] <= '9')
-        {
-
-        }
-
+            //write(1, &argv[i][j], 1);
+            return (0);
         else if (check_dup(argv))
         {
             perror_printdup();
-            return (0);
+            return (1);
         }
         j++;
     }
     i++;
-    return (1);
-}*/
+    return (0);
+}
 
-check_ischar(char **argv)
+check_ischar(char **argv) /*FIX CHAR DECLARATION AND SYMBOLS*/
 {
     int i;
     int j;
