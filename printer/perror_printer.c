@@ -6,7 +6,7 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 13:41:39 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/13 13:41:54 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/04/14 19:08:49 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,22 @@
 
 //  All print arguments passed functions
 
-void perror_printer(void)
+void	perror_printer(void)
 {
-    printf("Error.\n");
+	printf("Error.\n");
 }
 
-void perror_printargc(void)
+void	perror_printargc(void)
 {
-    printf("Type some more parameters passed.\nError\n");
+	printf("Type some more parameters passed.\nError\n");
 }
 
-void perror_printargv(void)
+void	perror_printargv(void)
 {
-    printf("Type any digit, you can do it.\nError.\n");
+	printf("Type any digit, you can do it.\nError.\n");
+}
+
+void	printer(void)
+{
+	printf("");
 }

@@ -6,7 +6,7 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 13:40:50 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/13 15:35:00 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/04/14 18:40:14 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 //  All print value functions
 
-void perror_printerger(void)
+void	perror_printerger(void)
 {
-    printf("No integers in string.\nError.\n");
+	printf("No integers in string.\nError.\n");
 }
 
-void perror_printint(void)
+void	perror_printint(void)
 {
-    printf("\nError.\n");
+	printf("\nError.\n");
 }
 
-void perror_printerdup(void)
+void	perror_printerdup(void)
 {
-    printf("Duplicate integer detected.\nError.\n");
+	printf("Duplicate integer detected.\nError.\n");
 }
 
-void perror_printchar(void)
+void	perror_printchar(void)
 {
-    printf("Char detected in string.\nError.\n");
+	printf("Char detected in string.\nError.\n");
 }
