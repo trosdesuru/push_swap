@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swwap.h"
+#include "push_swap.h"
 
 //  All print arguments passed functions
 
@@ -21,7 +21,7 @@ void	perror_printer(void)
 
 void	perror_printargc(void)
 {
-	printf("Type some more parameters passed.\nError\n");
+	printf("Type some more arguments passed.\nError\n");
 }
 
 void	perror_printargv(void)
@@ -31,5 +31,5 @@ void	perror_printargv(void)
 
 void	printer(void)
 {
-	printf("");
+	printf("NULL printed, please\n");
 }
