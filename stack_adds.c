@@ -12,19 +12,20 @@
 
 #include "push_swap.h"
 
-// Create a new Nod
+// Create a new node.
 t_stack	*stack_addnew(int content)
 {
 	t_stack	*new;
 
 	new = malloc(sizeof(t_stack));
 	if (!new)
-		ft_error();
+		perror_printadd();
 	new->nbr = content;
 	new->next = NULL;
 	return (new);
 }
 
+//Add a new node at the bottom.
 void	stack_addback(t_stack **stack, t_stack *stack_addnew)
 {
 	if (!stack)
@@ -32,5 +33,21 @@ void	stack_addback(t_stack **stack, t_stack *stack_addnew)
 	if (!*stack)
 		*stack = stack_addnew;
 	else
-		(stck_last(*stack))->next = stack_addnew;
+		(stack_last(*stack))->next = stack_addnew;
+}
+
+// This function frees any stack
+void	ft_free(t_stack **lst)
+{
+	t_stack	*tmp;
+
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		(*lst)->nbr = 0;
+		free(*lst);
+		*lst = tmp;
+	}
 }
