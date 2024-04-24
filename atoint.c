@@ -5,20 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 14:51:57 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/16 16:04:29 by edhernan         ###   ########.fr       */
+/*   Created: 2024/04/22 11:40:29 by edhernan          #+#    #+#             */
+/*   Updated: 2024/04/23 17:38:34 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	atoint(char *str)
+int	ft_atoint(const char *str)
 {
-	int	i;
+	int		mod;
+	long	i;
 
-	i = 1;
-	while (str)
+	i = 0;
+	mod = 1;
+	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\f'
+		|| *str == '\v' || *str == '\r')
+		str++;
+	if (*str == '-')
 	{
-		
+		mod = -1;
+		str++;
 	}
+	else if (*str == '+')
+		str++;
+	while (*str)
+	{
+		if (!ft_isdigit(*str))
+			perror_printer();
+		i = i * 10 + (*str - 48);
+		str++;
+	}
+	if ((mod * i) > 2147483647 || (mod * i) < -2147483648)
+		perror_printerger();
+	return (mod * i);
+}
+
+// Find all digits passed as arguments[i].
+int	check_isdigit(int c)
+{
+	if (c > 47 && c < 58)
+		return (1);
+	return (0);
 }

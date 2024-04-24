@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_test.c                                        :+:      :+:    :+:   */
+/*   stacks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 10:17:42 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/16 16:04:31 by edhernan         ###   ########.fr       */
+/*   Created: 2024/04/23 13:06:33 by edhernan          #+#    #+#             */
+/*   Updated: 2024/04/23 15:33:26 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "push_swap.h"
 
-int main(int argc, char **argv) 
+// Create a new Nod
+t_stack	*stack_addnew(int content)
 {
-    // Check arguments
-    int argsCheckResult = check_args(argc, argv);
-    if (argsCheckResult != 0)
-        return 1;
-    return 0;
+	t_stack	*new;
+
+	new = malloc(sizeof(t_stack));
+	if (!new)
+		ft_error();
+	new->nbr = content;
+	new->next = NULL;
+	return (new);
+}
+
+void	stack_addback(t_stack **stack, t_stack *stack_addnew)
+{
+	if (!stack)
+		return ;
+	if (!*stack)
+		*stack = stack_addnew;
+	else
+		(stck_last(*stack))->next = stack_addnew;
 }

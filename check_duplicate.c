@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   check_duplicate.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 17:15:50 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/23 17:30:05 by edhernan         ###   ########.fr       */
+/*   Created: 2024/04/23 17:41:19 by edhernan          #+#    #+#             */
+/*   Updated: 2024/04/23 17:41:21 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-// Check the number of arguments passed as parameters.
-t_stack	check_args(int argc, char **argv)
+int	check_duplicate(t_stack *a)
 {
-	t_stack	*a;
-	int		i;
-	int		j;
+	t_stack	*tmp;
 
-	i = 1;
-	a = NULL;
-	if (argc <= 2)
+	while (a)
 	{
-		perror_printargc();
-	}
-	else
-	{
-		while (i < argc)
+		tmp = a->next;
+		while (tmp)
 		{
-			j = atoint(argv[i]);
-			stack_addback(&a, stack_addnew[j]);
-			i++;
+			if (a->nbr == tmp->nbr)
+				return (1);
+			tmp = tmp->next;
 		}
+		a = a->next;
 	}
-	return (a);
+	return (0);
 }

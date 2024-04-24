@@ -6,7 +6,7 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 13:40:45 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/16 16:01:07 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/04/23 17:32:51 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,14 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 
-	int		i;
-	int		j;
-
-	i = 1;
-	a = NULL;
-	if (argc < 2)
+	a = check_args(argc, argv);
+	if (!a || check_duplicate(a))
 	{
-		perror_printargc();
-	}
-	if (argc == 2)
-	{
+		free(&a);
 		perror_printer();
 	}
-	else
-	{
-		while (i < argc)
-		{
-			j = atoint(argv[i]);
-			ft_add_back(&a, ft_stack_new[j]);
-			i++;
-		}
-	}
+	if (!ft_checksorted(a))
+		ft_sort(&a);
+	ft_free(&a);
+	return (0);
 }
