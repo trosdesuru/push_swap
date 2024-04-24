@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap"
+
 int	check_duplicate(t_stack *a)
 {
 	t_stack	*tmp;
@@ -26,4 +28,20 @@ int	check_duplicate(t_stack *a)
 		a = a->next;
 	}
 	return (0);
+}
+
+// This function checks if the stack is sorted.
+int	check_sorted(t_stack *stack_a)
+{
+	int	i;
+
+	i = stack_a->nbr;
+	while (stack_a)
+	{
+		if (i > stack_a->nbr)
+			return (0);
+		i = stack_a->nbr;
+		stack_a = stack_a->next;
+	}
+	return (1);
 }

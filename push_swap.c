@@ -22,8 +22,8 @@ int	main(int argc, char **argv)
 		free(&a);
 		perror_printer();
 	}
-	if (!ft_checksorted(a))
-		ft_sort(&a);
+	if (!check_sorted(a))
+		sort(&a);
 	ft_free(&a);
 	return (0);
 }

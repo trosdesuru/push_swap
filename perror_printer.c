@@ -15,20 +15,5 @@
 //  All print arguments passed functions
 void	perror_printer(void)
 {
-	fprintf(stderr, "*/*/*/* Error */*/*/*\n");
-}
-
-void	perror_printargc(void)
-{
-	fprintf(stderr, "Type some more arguments passed.\nError\n");
-}
-
-void	perror_printargv(void)
-{
-	fprintf(stderr, "Type any digit, you can do it.\nError.\n");
-}
-
-void	printer(void)
-{
-	fprintf(stderr, "NULL passed as argument.\nError.\n");
+	fprintf(stderr, "Error.\n");
 }
