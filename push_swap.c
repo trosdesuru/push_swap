@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 		perror_printer();
 	}
 	if (!check_sorted(a))
-		sort(&a);
-	ft_free(&a);
+		sort_stacks(&a);
+	only_free(&a);
 	return (0);
 }

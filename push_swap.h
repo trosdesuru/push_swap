@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 13:42:08 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/23 17:38:16 by edhernan         ###   ########.fr       */
+/*   Created: 2024/04/27 17:50:28 by edhernan          #+#    #+#             */
+/*   Updated: 2024/04/27 17:50:36 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int			lst_size(t_stack *lst);
 int			check_isdigit(int c);
 int			nbr_min(t_stack *a);
 int			nbr_max(t_stack *a);
-void		stck_addback(t_stack **stack, t_stack *stack_addnew);
+void		stack_addback(t_stack **stack, t_stack *stack_addnew);
 void		perror_printer(void);
 t_stack		check_args(int argc, char **argv);
 t_stack		*stack_addnew(int content);
