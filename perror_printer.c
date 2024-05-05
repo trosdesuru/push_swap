@@ -6,7 +6,7 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 13:41:39 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/30 11:47:23 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/05/05 15:57:19 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@
 void	perror_printer(void)
 {
 	fprintf(stderr, "Error.\n");
+	exit (1);
 }
