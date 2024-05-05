@@ -44,7 +44,6 @@ void	check_args(int argc, char **argv, t_stack **stack_a)
 				temp = temp->next;
 			}
 			i++;
-			
 		}
 		*stack_a = root;
 	}
