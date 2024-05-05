@@ -12,6 +12,7 @@
 
 #include "push_swap.h"
 
+// This function checks if there's some node duplicated.
 int	check_duplicate(t_stack *a)
 {
 	t_stack	*tmp;
