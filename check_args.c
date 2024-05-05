@@ -15,11 +15,11 @@
 // Check the number of arguments passed as parameters.
 void	check_args(int argc, char **argv, t_stack **stack_a)
 {
-	t_stack *temp;
-	t_stack *root;
+	t_stack	*temp;
+	t_stack	*root;
 
-	int		i;
-	int 	nbr;	
+	int	i;
+	int	nbr;	
 
 	i = 1;
 	root = *stack_a;
