@@ -38,11 +38,8 @@ long	atoint(const char *str)
 	}
 	if ((mod * i) > 2147483647 || (mod * i) < -2147483648)
 	{
-		
-		write(1, "fefe", 4);
 		perror_printer();
 	}
-	
 	return (mod * i);
 }
 
