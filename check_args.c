@@ -6,33 +6,46 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 17:15:50 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/23 17:30:05 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/04/30 18:13:09 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Check the number of arguments passed as parameters.
-t_stack	check_args(int argc, char **argv)
+void	check_args(int argc, char **argv, t_stack **stack_a)
 {
-	t_stack	*a;
+	t_stack *temp;
+	t_stack *root;
+
 	int		i;
-	int		j;
+	int 	nbr;	
 
 	i = 1;
-	a = NULL;
+	root = *stack_a;
+	temp = NULL;
 	if (argc <= 2)
 	{
-		perror_printargc();
+		perror_printer();
 	}
 	else
 	{
-		while (i < argc)
+		while (argv[i])
 		{
-			j = atoint(argv[i]);
-			stack_addback(&a, stack_addnew[j]);
+			nbr = atoint(argv[i]);
+			if (!root)
+			{
+				root = stack_addnew(nbr);
+				temp = root;
+			}
+			else
+			{
+				temp->next = stack_addnew(nbr);
+				temp = temp->next;
+			}
 			i++;
+			
 		}
+		*stack_a = root;
 	}
-	return (a);
 }

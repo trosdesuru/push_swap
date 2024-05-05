@@ -6,7 +6,7 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 13:40:45 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/23 17:32:51 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/04/30 18:13:07 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a;
+	t_stack *stack_a;
 
-	a = check_args(argc, argv);
-	if (!a || check_duplicate(a))
+	stack_a = NULL;
+	check_args(argc, argv, &stack_a);
+	if (!stack_a || check_duplicate(stack_a))
 	{
-		free(&a);
+		free(stack_a);
 		perror_printer();
 	}
-	if (!check_sorted(a))
-		sort_stacks(&a);
-	only_free(&a);
-	return (0);
+	//if (!check_sorted(stack_a))
+	//	sort_stacks(&stack_a);
+	//only_free(&stack_a);
+	//return (0);
 }

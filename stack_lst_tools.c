@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_tools.c                                      :+:      :+:    :+:   */
+/*   stack_lst_tools.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 13:07:44 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/23 17:34:21 by edhernan         ###   ########.fr       */
+/*   Created: 2024/04/28 17:19:38 by edhernan          #+#    #+#             */
+/*   Updated: 2024/04/30 11:37:05 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,36 +32,6 @@ int	lst_size(t_stack *lst)
 	{
 		lst = lst->next;
 		i++;
-	}
-	return (i);
-}
-
-// Find and returns the smallest number.
-int	nbr_min(t_stack *a)
-{
-	int		i;
-
-	i = a->nbr;
-	while (a)
-	{
-		if (a->nbr < i)
-			i = a->nbr;
-		a = a->next;
-	}
-	return (i);
-}
-
-// Find and returns the biggest number.
-int	nbr_max(t_stack *a)
-{
-	int		i;
-
-	i = a->nbr;
-	while (a)
-	{
-		if (a->nbr > i)
-			i = a->nbr;
-		a = a->next;
 	}
 	return (i);
 }

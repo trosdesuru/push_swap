@@ -6,13 +6,13 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:40:29 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/23 17:38:34 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/04/30 16:27:18 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoint(const char *str)
+long	atoint(const char *str)
 {
 	int		mod;
 	long	i;
@@ -31,13 +31,18 @@ int	ft_atoint(const char *str)
 		str++;
 	while (*str)
 	{
-		if (!ft_isdigit(*str))
+		if (!check_isdigit(*str))
 			perror_printer();
 		i = i * 10 + (*str - 48);
 		str++;
 	}
 	if ((mod * i) > 2147483647 || (mod * i) < -2147483648)
-		perror_printerger();
+	{
+		
+		write(1, "fefe", 4);
+		perror_printer();
+	}
+	
 	return (mod * i);
 }
 

@@ -1,47 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_nodes.c                                      :+:      :+:    :+:   */
+/*   stack_find_tools.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 17:46:01 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/30 18:13:16 by edhernan         ###   ########.fr       */
+/*   Created: 2024/04/28 17:19:04 by edhernan          #+#    #+#             */
+/*   Updated: 2024/04/30 18:13:14 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int	check_duplicate(t_stack *a)
+// Find and returns the smallest number.
+int	find_min(t_stack *a)
 {
-	t_stack	*tmp;
+	int		i;
 
+	i = a->nbr;
 	while (a)
 	{
-		tmp = a->next;
-		while (tmp)
-		{
-			if (a->nbr == tmp->nbr)
-				return (1);
-			tmp = tmp->next;
-		}
+		if (a->nbr < i)
+			i = a->nbr;
 		a = a->next;
 	}
-	return (0);
+	return (i);
 }
 
-// This function checks if the stack is sorted.
-int	check_sorted(t_stack *stack_a)
+// Find and returns the biggest number.
+int	find_max(t_stack *a)
 {
-	int	i;
+	int		i;
 
-	i = stack_a->nbr;
-	while (stack_a)
+	i = a->nbr;
+	while (a)
 	{
-		if (i > stack_a->nbr)
-			return (0);
-		i = stack_a->nbr;
-		stack_a = stack_a->next;
+		if (a->nbr > i)
+			i = a->nbr;
+		a = a->next;
 	}
-	return (1);
+	return (i);
 }
