@@ -25,29 +25,29 @@ t_stack	*stack_addnew(int content)
 	return (new);
 }
 
-//Add a new node at the bottom.
-/*void	stack_addback(t_stack **stack, t_stack *stack_addnew)
+// Add a new node at the bottom.
+void	stack_addback(t_stack **stack, t_stack *stack_addnew)
 {
 	if (!stack)
 		return ;
 	if (!*stack)
 		*stack = stack_addnew;
 	else
-		(stack_last(*stack))->next = stack_addnew;
-}*/
+		(lst_last(*stack))->next = stack_addnew;
+}
 
-// This function frees any stack
+// This function frees any stack.
 void	only_free(t_stack **lst)
 {
-	t_stack	*tmp;
+	t_stack	*temp;
 
 	if (!lst)
 		return ;
 	while (*lst)
 	{
-		tmp = (*lst)->next;
+		temp = (*lst)->next;
 		(*lst)->nbr = 0;
 		free(*lst);
-		*lst = tmp;
+		*lst = temp;
 	}
 }
