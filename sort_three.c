@@ -1,43 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/23 17:15:50 by edhernan          #+#    #+#             */
-/*   Updated: 2024/05/05 18:36:53 by edhernan         ###   ########.fr       */
+/*   Created: 2024/05/05 18:21:24 by edhernan          #+#    #+#             */
+/*   Updated: 2024/05/05 18:41:45 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Check the number of arguments passed as parameters.
-void	check_args(int argc, char **argv, t_stack **stack_a)
+// This function sort three elements in the stack.
+void	sort_three(t_stack **stack_a)
 {
-	t_stack	*temp;
-	t_stack	*root;
-	int		i;
-	int		nbr;	
-
-	i = 1;
-	root = *stack_a;
-	if (argc <= 2)
-		perror_printer();
-	while (argv[i])
+	if (find_min(*stack_a) == (*stack_a)->nbr)
 	{
-		nbr = atoint(argv[i]);
-		if (!root)
-		{
-			root = stack_addnew(nbr);
-			temp = root;
-		}
-		else
-		{
-			temp->next = stack_addnew(nbr);
-			temp = temp->next;
-		}
-		i++;
+		mv_rra(stack_a, 0);
+		mv_sa(stack_a, 0);
 	}
-	*stack_a = root;
+	else if (find_max(*stack_a) == (*stack_a)->nbr)
+	{
+		mv_ra(stack_a, 0);
+		if (!check_sorted(*stack_a))
+			mv_sa(stack_a, 0);
+	}
+	else
+	{
+		if (find_index(*stack_a, find_max(*stack_a)) == 1)
+			mv_rra(stack_a, 0);
+		else
+			mv_sa(stack_a, 0);
+	}
 }

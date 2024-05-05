@@ -6,7 +6,7 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 11:40:29 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/30 16:27:18 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/05/05 18:28:33 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,7 @@ long	atoint(const char *str)
 		str++;
 	}
 	if ((mod * i) > 2147483647 || (mod * i) < -2147483648)
-	{
 		perror_printer();
-	}
 	return (mod * i);
 }
 

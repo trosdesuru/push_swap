@@ -6,7 +6,7 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 16:26:25 by edhernan          #+#    #+#             */
-/*   Updated: 2024/05/05 16:27:13 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/05/05 18:41:12 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void	sort_stacks(t_stack **stack_a)
 		{
 			while ((*stack_a)->nbr != find_min(*stack_a))
 				mv_rra(stack_a, 0);
-		}			
-	}	
+		}
+	}
 }

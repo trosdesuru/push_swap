@@ -6,9 +6,11 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 17:19:04 by edhernan          #+#    #+#             */
-/*   Updated: 2024/04/30 18:13:14 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/05/05 18:39:57 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 // Find and returns the smallest number.
 int	find_min(t_stack *a)
