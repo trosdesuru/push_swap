@@ -6,7 +6,7 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 18:09:23 by edhernan          #+#    #+#             */
-/*   Updated: 2024/05/05 18:09:36 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/05/06 15:13:05 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	mv_rrr(t_stack **a, t_stack **b, int j)
 	(*a)->next = temp;
 	while (i > 1)
 	{
-		temp = tmp->next;
+		temp = temp->next;
 		i--;
 	}
 	temp->next = NULL;

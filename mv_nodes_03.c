@@ -6,7 +6,7 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 18:14:38 by edhernan          #+#    #+#             */
-/*   Updated: 2024/05/05 18:37:45 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/05/06 15:13:43 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	mv_rb(t_stack **b, int j)
 	if (!*b || !(*b)->next)
 		return ;
 	temp = *b;
-	*b = ft_lstlast(*b);
+	*b = lst_last(*b);
 	(*b)->next = temp;
 	*b = temp->next;
 	temp->next = NULL;

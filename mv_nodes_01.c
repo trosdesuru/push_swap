@@ -6,7 +6,7 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 16:26:03 by edhernan          #+#    #+#             */
-/*   Updated: 2024/05/05 18:10:23 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/05/06 15:12:38 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	mv_ra(t_stack **a, int j)
 	if (!*a || !(*a)->next)
 		return ;
 	temp = *a;
-	*a = ft_lstlast(*a);
+	*a = lst_last(*a);
 	(*a)->next = temp;
-	*a = tmp->next;
+	*a = temp->next;
 	temp->next = NULL;
 	if (j == 0)
 		write(1, "ra\n", 3);
@@ -77,7 +77,7 @@ void	mv_rra(t_stack **a, int j)
 	(*a)->next = temp;
 	while (i > 1)
 	{
-		temp = tmp->next;
+		temp = temp->next;
 		i--;
 	}
 	temp->next = NULL;

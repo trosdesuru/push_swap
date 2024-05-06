@@ -5,12 +5,13 @@
 #                                                     +:+ +:+         +:+      #
 #    By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/06 14:16:47 by edhernan          #+#    #+#              #
-#    Updated: 2024/05/06 14:25:40 by edhernan         ###   ########.fr        #
+#    Created: 2024/05/06 15:03:52 by edhernan          #+#    #+#              #
+#    Updated: 2024/05/06 16:44:56 by edhernan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+DEBUG_NAME = push_swap_debug
 
 #----COLORS----#
 DEF_COLOR = \033[1;39m
@@ -27,19 +28,11 @@ CIAN = \033[1;36m
 CC = cc
 CCFLAGS = -Wall -Werror -Wextra
 
-#----DIRS----#
-BIN_DIR = bin/
-INC_DIR = inc/
-SRCS_DIR = src/
-INCLUDES = -I$(INC_DIR) 
-
-#----LIBFT----#
-LIBFT_DIR = lib/libft/
-LIBFT_LIB = $(LIBFT_DIR)libft.a
-INCLUDES += -I$(LIBFT_DIR) 
-
 #----MANDATORY----#
 SRCS =	push_swap.c \
+		algorythm.c \
+		algorythm_02.c \
+		algorythm_03.c \
 		atoint.c \
 		check_args.c \
 		check_nodes.c \
@@ -47,105 +40,54 @@ SRCS =	push_swap.c \
 		mv_nodes_02.c \
 		mv_nodes_03.c \
 		perror_printer.c \
-		push_swap.c \
-		push_swap.h \
 		sort_stack_tools.c \
 		sort_three.c \
 		stack_adds.c \
 		stack_find_tools.c \
-		stack_lst_tools.c \
+		stack_lst_tools.c
 
-OBJS = $(SRCS:%.c=$(BIN_DIR)%.o)
-DEPS = $(OBJS:%.o=%.d)
+OBJS = $(SRCS:.c=.o)
+DEPS = $(OBJS:.o=.d)
 
 #----DEBUG----#
 ifdef DEBUG
-	OBJS = $(SRCS:%.c=$(BIN_DIR)%_debug.o)
-	BOBJS = $(BSRCS:%.c=$(BIN_DIR)%_debug.o)
+	OBJS = $(SRCS:.c=_debug.o)
 	NAME = $(DEBUG_NAME)
 endif
 
-#----OS COMPATIBILITY----#
-ifneq ($(OS),Windows_NT)
-	UNAME_S = $(shell uname -s)
-else
-	UNAME_S = Windows
-endif
-
 #----RULES----#
-all:
-	@$(MAKE) --no-print-directory make_libft
-	@$(MAKE) --no-print-directory $(NAME)
+all: $(NAME)
 
-ifndef BONUS
-$(NAME): $(LIBFT_LIB) $(OBJS)
+$(NAME): $(OBJS)
 	@printf "$(BLUE)Linking objects and creating program...$(DEF_COLOR)\n"
-	@$(CC) $(CCFLAGS) $(OBJS) $(LIBFT_LIB) -o $(NAME)
-	@echo "$(GREEN)[✓] $(PINK)$(NAME)$(GREEN) created!!!$(DEF_COLOR)"
-else
-$(NAME): $(LIBFT_LIB) $(BOBJS)
-	@echo "$(BLUE)\nLinking objects and creating binary program...$(DEF_COLOR)"
-	@$(CC) $(CCFLAGS) $(BOBJS) $(LIBFT_LIB) $(DARWIN_FLAGS) -o $(NAME)
-	@echo "$(GREEN)[✓] $(PINK)$(NAME) Bonus$(GREEN) created!!!$(DEF_COLOR)"
-endif
+	@$(CC) $(CCFLAGS) $(OBJS) -o $@
+	@echo "$(GREEN)[✓] $(PINK)$@$(GREEN) created!!!$(DEF_COLOR)"
 
 ifndef DEBUG
-$(BIN_DIR)%.o: $(SRCS_DIR)%.c Makefile
+%.o: %.c Makefile
 	@printf "$(CIAN)Compiling: $(PINK)$(notdir $<)...$(DEF_COLOR)\n"
-	@mkdir -p $(BIN_DIR)
-	@$(CC) $(CCFLAGS) $(INCLUDES) -MMD -c $< -o $@
+	@$(CC) $(CCFLAGS) -MMD -c $< -o $@
 else
-$(BIN_DIR)%_debug.o: $(SRCS_DIR)%.c Makefile
+%_debug.o: %.c Makefile
 	@printf "$(CIAN)Compiling: $(PINK)$(notdir $<)...$(DEF_COLOR)\n"
-	@mkdir -p $(BIN_DIR)
-	@$(CC) -g $(CCFLAGS) $(INCLUDES) -MMD -c $< -o $@
+	@$(CC) -g $(CCFLAGS) -MMD -c $< -o $@
 endif
 
-clean:	libft_clean
-	@rm -rf $(BIN_DIR)
-	@echo "$(RED)bin/ deleted$(DEF_COLOR)"
+clean:
+	@rm -rf $(OBJS) $(DEPS)
+	@echo "$(RED)Object files deleted$(DEF_COLOR)"
 
-fclean: libft_fclean clean
-	@rm -rf $(NAME)
+fclean: clean
+	@rm -f $(NAME) $(DEBUG_NAME)
 	@echo "$(RED)Executable deleted$(DEF_COLOR)\n"
 
 re: fclean all
 
-b: bonus
+debug:
+	@$(MAKE) DEBUG=1
 
-bonusre: fclean bonus
-
-make_libft:
-	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) bonus
-	@echo ""
-
-libft_clean:
-	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) clean
-
-libft_fclean:
-	@echo "$(RED)Cleaning $(PINK)Libft$(RED)...$(DEF_COLOR)"
-	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) fclean
-
-norme:
-	@echo "$(YELLOW)\n------------------------\nChecking norme errors...\n------------------------\n$(DEF_COLOR)"
-	@-norminette $(INC_DIR) $(SRCS_DIR)
-	@echo ""
-
-n: norme
-
-.PHONY: all \
-		clean \
-		fclean \
-		re \
-		bonus \
-		bonusre \
-		make_libft \
-		libft_clean \
-		libft_fclean \
-		norme \
-		b \
+.PHONY: all clean fclean re debug
 
 -include $(DEPS)
--include $(BDEPS)
 
 .SILENT:

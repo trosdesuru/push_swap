@@ -6,7 +6,7 @@
 /*   By: edhernan <edhernan@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 17:19:04 by edhernan          #+#    #+#             */
-/*   Updated: 2024/05/05 18:39:57 by edhernan         ###   ########.fr       */
+/*   Updated: 2024/05/06 16:30:33 by edhernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	find_place_b(t_stack *stack_b, int nbr_push)
 	else
 	{
 		temp = stack_b->next;
-		while (stack_b->nbr < nbr_push || tmp->nbr > nbr_push)
+		while (stack_b->nbr < nbr_push || temp->nbr > nbr_push)
 		{
 			stack_b = stack_b->next;
 			temp = stack_b->next;
